@@ -5,7 +5,7 @@
                 <input type="text" v-model="search" @keyup="getData" placeholder="请输入搜索内容">
             </div>
             <div class="content-table">
-                <table v-if="list.data.length > 0">
+                <table >
                     <thead>
                         <tr>
                             <th>__typename</th>
@@ -16,7 +16,7 @@
                             <th>createdAt</th>
                         </tr>
                     </thead>
-                    <tr  v-for=" (item,index) in list.data" :key="index">
+                    <tr  v-if="list.data.length > 0" v-for=" (item,index) in list.data" :key="index">
                         <td>{{ item.__typename }}</td>
                         <td>{{ item.id ? item.id : '' }}</td>
                         <td>{{ item.title ? item.title : '' }}</td>
@@ -25,7 +25,7 @@
                         <td>{{ item.createdAt ? item.createdAt : ''}}</td>
                     </tr>
                 </table>
-                <div v-else>
+                <div v-if="list.data.length <= 0" class="content-msg">
                     暂无匹配数据
                 </div>
             </div>
@@ -186,6 +186,12 @@ import { throttle } from './throttle'
 
       table tr:nth-child(even) {
         background: #fff;
+      }
+
+      .content-msg {
+        font-size: 14px;
+        color: #606266;
+        margin: 20px;
       }
     }
   }
