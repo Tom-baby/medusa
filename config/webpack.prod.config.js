@@ -23,7 +23,7 @@ const config = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: '/css/[name].[contenthash].css',
+      filename: 'css/[name].[contenthash].css',
       chunkFilename: '[id].css',
     }),
     new CleanWebpackPlugin(),
