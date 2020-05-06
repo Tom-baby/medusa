@@ -66,4 +66,9 @@
 #app .content .content-table table tr[data-v-7ba5bd90]:nth-child(even) {
         background: #fff;
 }
+#app .content .content-table .content-msg[data-v-7ba5bd90] {
+        font-size: 14px;
+        color: #606266;
+        margin: 20px;
+}
 
